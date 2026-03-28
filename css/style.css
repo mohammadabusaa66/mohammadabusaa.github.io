@@ -809,6 +809,81 @@ body::before {
 }
 
 /* ══════════════════════════════════════════════════════
+   TAC TRAINING MODULES
+   ══════════════════════════════════════════════════════ */
+.training-phase {
+  padding: 2rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  height: 100%;
+  transition: var(--transition);
+}
+
+.training-phase:hover {
+  border-color: rgba(59, 130, 246, 0.25);
+  box-shadow: var(--shadow-md);
+}
+
+.phase-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.phase-badge {
+  padding: 0.35rem 0.9rem;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.phase-header h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-100);
+  margin: 0;
+}
+
+.training-topics {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.topic-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--text-300);
+  font-weight: 400;
+  padding: 0.35rem 0.5rem;
+  border-radius: 6px;
+  transition: var(--transition);
+}
+
+.topic-item:hover {
+  background: var(--accent-soft);
+  color: var(--text-100);
+}
+
+.topic-item i {
+  color: var(--accent);
+  font-size: 0.8rem;
+  margin-top: 0.15rem;
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════════════════════════════
    PROJECTS
    ══════════════════════════════════════════════════════ */
 .project-card {
