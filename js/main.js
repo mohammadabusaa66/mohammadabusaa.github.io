@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initBackToTop();
   initSmoothScroll();
   initContactForm();
+  initTiltEffect();
+  initNavHighlight();
 });
 
 /* ── AOS (Animate on Scroll) ── */
@@ -245,24 +247,65 @@ function initContactForm() {
   if (!form) return;
 
   form.addEventListener('submit', (e) => {
-    e.preventDefault();
-
     const btn = form.querySelector('button[type="submit"]');
     const originalText = btn.innerHTML;
 
-    // Show loading state
-    btn.innerHTML = '<i class="bi bi-check-circle me-2"></i>Message Sent!';
-    btn.classList.add('btn-success');
-    btn.classList.remove('btn-accent');
+    // Show loading
+    btn.innerHTML = '<i class="bi bi-hourglass-split me-2"></i>Sending...';
     btn.disabled = true;
 
-    // Reset after 3 seconds
-    setTimeout(() => {
-      btn.innerHTML = originalText;
-      btn.classList.remove('btn-success');
-      btn.classList.add('btn-accent');
-      btn.disabled = false;
-      form.reset();
-    }, 3000);
+    // If using Formspree, let form submit naturally
+    // If no Formspree ID set, prevent default and show demo
+    if (form.action.includes('xplaceholder')) {
+      e.preventDefault();
+      setTimeout(() => {
+        btn.innerHTML = '<i class="bi bi-check-circle me-2"></i>Message Sent!';
+        btn.classList.add('btn-success');
+        btn.classList.remove('btn-accent');
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.classList.remove('btn-success');
+          btn.classList.add('btn-accent');
+          btn.disabled = false;
+          form.reset();
+        }, 3000);
+      }, 1000);
+    }
+  });
+}
+
+/* ── Card Tilt Effect ── */
+function initTiltEffect() {
+  if (window.innerWidth < 768) return;
+
+  const cards = document.querySelectorAll('.project-card, .award-card, .skill-card');
+
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = (y - centerY) / 20;
+      const rotateY = (centerX - x) / 20;
+
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+}
+
+/* ── Navbar Active Section Highlight ── */
+function initNavHighlight() {
+  const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+  navLinks.forEach(link => {
+    link.addEventListener('click', function () {
+      navLinks.forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+    });
   });
 }
