@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohammad Abusaa — Network Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --navy-mid: #111d33;
+    --navy-light: #1a2d4a;
+    --accent: #3b82f6;
+    --accent-glow: #60a5fa;
+    --accent-soft: rgba(59, 130, 246, 0.08);
+    --gold: #f59e0b;
+    --gold-soft: rgba(245, 158, 11, 0.1);
+    --gold-border: rgba(245, 158, 11, 0.2);
+    --green: #10b981;
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --border: rgba(148, 163, 184, 0.1);
+    --card-bg: rgba(17, 29, 51, 0.6);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Manrope', sans-serif;
+    background: var(--navy);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    line-height: 1.7;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── Navigation ── */
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 1.2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(10, 22, 40, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    transition: all 0.3s ease;
+  }
+
+  .nav-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    color: var(--text-primary);
+    letter-spacing: 0.5px;
+  }
+  .nav-logo span { color: var(--accent); }
+
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s;
+  }
+  .nav-links a:hover { color: var(--accent-glow); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+  .hamburger span {
+    width: 24px;
+    height: 2px;
+    background: var(--text-primary);
+    transition: all 0.3s;
+  }
+
+  /* ── Sections ── */
+  section {
+    position: relative;
+    z-index: 1;
+    padding: 7rem 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .section-label::before {
+    content: '';
+    width: 28px;
+    height: 2px;
+    background: var(--accent);
+  }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.8rem;
+    font-weight: 400;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .section-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    font-weight: 300;
+    max-width: 600px;
+    margin-bottom: 3rem;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 5rem;
+  }
+  .hero-content { max-width: 750px; }
+
+  .hero-greeting {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: slideUp 0.8s ease 0.2s forwards;
+  }
+
+  .hero-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(3rem, 6vw, 5rem);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: slideUp 0.8s ease 0.4s forwards;
+  }
+  .hero-name .highlight {
+    background: linear-gradient(135deg, var(--accent), var(--accent-glow));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-role {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+    max-width: 580px;
+    opacity: 0;
+    animation: slideUp 0.8s ease 0.6s forwards;
+  }
+
+  .hero-badges {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: slideUp 0.8s ease 0.8s forwards;
+  }
+
+  .badge {
+    padding: 0.5rem 1.2rem;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .badge .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+    animation: pulse-dot 2s infinite;
+  }
+  .badge-gold {
+    border-color: var(--gold-border);
+    color: var(--gold);
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    opacity: 0;
+    animation: slideUp 0.8s ease 1s forwards;
+  }
+
+  .btn-primary {
+    padding: 0.85rem 2rem;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+    letter-spacing: 0.5px;
+  }
+  .btn-primary:hover {
+    background: var(--accent-glow);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(59, 130, 246, 0.3);
+  }
+
+  .btn-outline {
+    padding: 0.85rem 2rem;
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+    letter-spacing: 0.5px;
+  }
+  .btn-outline:hover {
+    border-color: var(--accent);
+    color: var(--accent-glow);
+    transform: translateY(-2px);
+  }
+
+  /* ── Decorative side ── */
+  .hero-decoration {
+    position: absolute;
+    right: 3rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    opacity: 0;
+    animation: fadeIn 1s ease 1.2s forwards;
+  }
+  .hero-decoration .line {
+    width: 1px;
+    height: 80px;
+    background: linear-gradient(to bottom, transparent, var(--accent), transparent);
+  }
+  .hero-decoration .icon-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    transition: all 0.3s;
+    text-decoration: none;
+  }
+  .hero-decoration .icon-circle:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-soft);
+  }
+
+  /* ── About ── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .about-text p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    font-weight: 300;
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .stat-card {
+    padding: 1.8rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s;
+  }
+  .stat-card:hover {
+    border-color: rgba(59, 130, 246, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  }
+  .stat-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.4rem;
+    color: var(--accent);
+    margin-bottom: 0.3rem;
+  }
+  .stat-label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* ── Skills ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .skill-card {
+    padding: 2rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    transition: all 0.4s;
+    position: relative;
+    overflow: hidden;
+  }
+  .skill-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-glow));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s;
+  }
+  .skill-card:hover::before { transform: scaleX(1); }
+  .skill-card:hover {
+    border-color: rgba(59, 130, 246, 0.25);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  }
+  .skill-icon {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    width: 48px; height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: var(--accent-soft);
+  }
+  .skill-card h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+  }
+  .skill-card p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  .skill-tag {
+    padding: 0.3rem 0.7rem;
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.15);
+    border-radius: 6px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--accent-glow);
+    letter-spacing: 0.5px;
+  }
+
+  /* ── Certifications ── */
+  .certs-row {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+  .cert-card {
+    flex: 1;
+    min-width: 250px;
+    padding: 1.8rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    transition: all 0.3s;
+  }
+  .cert-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-3px);
+  }
+  .cert-icon {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: var(--gold-soft);
+    border: 1px solid var(--gold-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+  .cert-info h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+  }
+  .cert-info p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+
+  /* ── Awards ── */
+  .awards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+  .award-card {
+    padding: 1.8rem;
+    background: var(--card-bg);
+    border: 1px solid var(--gold-border);
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s;
+  }
+  .award-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(245, 158, 11, 0.1);
+    border-color: var(--gold);
+  }
+  .award-emoji {
+    font-size: 2.2rem;
+    margin-bottom: 0.8rem;
+  }
+  .award-card h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+  }
+  .award-card p {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  /* ── Experience ── */
+  .timeline {
+    position: relative;
+    padding-left: 3rem;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 8px;
+    bottom: 8px;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--accent), var(--border), transparent);
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 2.5rem;
+    padding: 2rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    transition: all 0.3s;
+  }
+  .timeline-item:hover {
+    border-color: rgba(59, 130, 246, 0.25);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2.65rem;
+    top: 2.2rem;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--navy);
+    border: 2px solid var(--accent);
+    z-index: 1;
+  }
+  .timeline-date {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .timeline-item h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+  }
+  .timeline-item h4 {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+  }
+  .timeline-item p {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+  .timeline-item ul {
+    list-style: none;
+    margin-top: 0.8rem;
+  }
+  .timeline-item ul li {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    padding: 0.3rem 0;
+    padding-left: 1.2rem;
+    position: relative;
+  }
+  .timeline-item ul li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+
+  /* ── Education ── */
+  .edu-card {
+    padding: 2rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  .edu-icon {
+    width: 60px; height: 60px;
+    border-radius: 12px;
+    background: var(--accent-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    flex-shrink: 0;
+  }
+  .edu-info h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+  }
+  .edu-info p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+  }
+
+  /* ── Contact ── */
+  .contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+  .contact-info-block h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  .contact-info-block p {
+    color: var(--text-secondary);
+    font-weight: 300;
+    margin-bottom: 2rem;
+    max-width: 400px;
+  }
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.2rem 1.5rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    transition: all 0.3s;
+  }
+  .contact-link:hover {
+    border-color: var(--accent);
+    color: var(--text-primary);
+    transform: translateX(6px);
+  }
+  .contact-link .c-icon {
+    width: 40px; height: 40px;
+    border-radius: 8px;
+    background: var(--accent-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    padding: 1rem 1.2rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text-primary);
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  .contact-form input:focus,
+  .contact-form textarea:focus { border-color: var(--accent); }
+  .contact-form textarea { resize: vertical; min-height: 130px; }
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder { color: var(--text-muted); }
+
+  /* ── Footer ── */
+  footer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 3rem;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    font-weight: 300;
+  }
+
+  /* ── Divider ── */
+  .section-divider {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 3rem;
+  }
+  .section-divider hr {
+    border: none;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── Animations ── */
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.5rem; }
+    .nav-links a { font-size: 0.75rem; }
+    section { padding: 5rem 1.5rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .awards-grid { grid-template-columns: 1fr 1fr; }
+    .contact-wrapper { grid-template-columns: 1fr; }
+    .hero-decoration { display: none; }
+    .hero-name { font-size: 2.8rem; }
+  }
+
+  @media (max-width: 768px) {
+    .nav-links { 
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      background: rgba(10, 22, 40, 0.95);
+      backdrop-filter: blur(20px);
+      padding: 1.5rem 2rem;
+      gap: 1.2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-links.active { display: flex; }
+    .hamburger { display: flex; }
+  }
+
+  @media (max-width: 600px) {
+    .skills-grid { grid-template-columns: 1fr; }
+    .awards-grid { grid-template-columns: 1fr; }
+    .certs-row { flex-direction: column; }
+    .hero-badges { flex-direction: column; }
+    .about-stats { grid-template-columns: 1fr; }
+    .section-title { font-size: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <div class="nav-logo">M<span>.</span>Abusaa</div>
+  <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('active')">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#awards">Awards</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-greeting">Welcome to my portfolio</div>
+    <h1 class="hero-name">
+      I'm <span class="highlight">Mohammad</span><br>
+      <span class="highlight">Abusaa</span><span style="-webkit-text-fill-color: var(--text-primary)">.</span>
+    </h1>
+    <p class="hero-role">
+      Cisco TAC Engineer specializing in SD-WAN and Catalyst switching platforms — diagnosing complex network issues for enterprise customers worldwide.
+    </p>
+    <div class="hero-badges">
+      <span class="badge"><span class="dot"></span> Open to Opportunities</span>
+      <span class="badge">📍 Amman, Jordan</span>
+      <span class="badge badge-gold">🏆 Huawei ICT World Champion 2025</span>
+    </div>
+    <div class="hero-cta">
+      <a href="#contact" class="btn-primary">Get in Touch</a>
+      <a href="#experience" class="btn-outline">View Experience</a>
+    </div>
+  </div>
+  <div class="hero-decoration">
+    <div class="line"></div>
+    <a href="https://www.linkedin.com/in/mohammad-abusaa-94b093305/" target="_blank" class="icon-circle" title="LinkedIn">in</a>
+    <a href="mailto:mohammadabusaa66@gmail.com" class="icon-circle" title="Email">✉</a>
+    <div class="line"></div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about">
+  <div class="reveal">
+    <div class="section-label">About Me</div>
+    <div class="section-title">Building Networks,<br>Solving Problems.</div>
+    <div class="section-subtitle">Over 2 years of hands-on experience in enterprise network support and troubleshooting.</div>
+  </div>
+  <div class="about-grid reveal">
+    <div class="about-text">
+      <p>
+        I'm a Cisco TAC Engineer with over 2 years of experience supporting enterprise customers across Catalyst switching platforms and Cisco SD-WAN. I enjoy digging into complex network problems — whether it's an STP loop bringing down a production network or a vManage configuration preventing tunnels from coming up.
+      </p>
+      <p>
+        I work well under pressure, take ownership of my cases, and always make sure the customer walks away with a clear understanding of what happened and why. My experience spans from Layer 2 switching fundamentals to full SD-WAN overlay architectures.
+      </p>
+      <p>
+        I hold a Bachelor's degree in Computer Engineering from Al-Balqa' Applied University. Outside of work, I've competed in the Huawei ICT Competition and placed 1st at the World Final in 2025 — a reflection of how seriously I take growing my technical skills.
+      </p>
+    </div>
+    <div class="about-stats">
+      <div class="stat-card">
+        <div class="stat-number">2+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">6</div>
+        <div class="stat-label">ICT Competition Awards</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">SD-WAN</div>
+        <div class="stat-label">Current Focus</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">Cat 9K</div>
+        <div class="stat-label">Platform Expertise</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- Awards -->
+<section id="awards">
+  <div class="reveal">
+    <div class="section-label">Awards & Achievements</div>
+    <div class="section-title">Huawei ICT Competition</div>
+    <div class="section-subtitle">Competing and winning at the highest levels of global networking competitions.</div>
+  </div>
+  <div class="awards-grid reveal">
+    <div class="award-card">
+      <div class="award-emoji">🥇</div>
+      <h4>1st Prize — World Final</h4>
+      <p>Huawei ICT Competition 2025</p>
+    </div>
+    <div class="award-card">
+      <div class="award-emoji">🥇</div>
+      <h4>Grand Prize — ME&CA Final</h4>
+      <p>Middle East & Central Asia 2024</p>
+    </div>
+    <div class="award-card">
+      <div class="award-emoji">🥇</div>
+      <h4>Grand Prize — Jordan Final</h4>
+      <p>Jordan National 2024</p>
+    </div>
+    <div class="award-card">
+      <div class="award-emoji">🥈</div>
+      <h4>2nd Prize — World Final</h4>
+      <p>Huawei ICT Competition 2024</p>
+    </div>
+    <div class="award-card">
+      <div class="award-emoji">🥉</div>
+      <h4>3rd Prize — ME&CA Final</h4>
+      <p>Middle East & Central Asia 2023</p>
+    </div>
+    <div class="award-card">
+      <div class="award-emoji">🥇</div>
+      <h4>1st Prize — Jordan Final</h4>
+      <p>Jordan National 2023</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- Skills -->
+<section id="skills">
+  <div class="reveal">
+    <div class="section-label">Skills & Certifications</div>
+    <div class="section-title">Technical Expertise</div>
+    <div class="section-subtitle">Core competencies built through real-world enterprise network operations and TAC case work.</div>
+  </div>
+
+  <div class="skills-grid reveal">
+    <div class="skill-card">
+      <div class="skill-icon">🔀</div>
+      <h3>Enterprise Switching</h3>
+      <p>Advanced L2/L3 switching, stack troubleshooting, and platform diagnostics across the full Catalyst portfolio.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">VLANs</span>
+        <span class="skill-tag">STP/RSTP/MST</span>
+        <span class="skill-tag">EtherChannel</span>
+        <span class="skill-tag">StackWise</span>
+        <span class="skill-tag">SSO/NSF</span>
+        <span class="skill-tag">REP</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🌐</div>
+      <h3>Cisco SD-WAN</h3>
+      <p>Full SD-WAN lifecycle — controller deployments, edge onboarding, tunnel debugging, and overlay management.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">vManage</span>
+        <span class="skill-tag">vBond</span>
+        <span class="skill-tag">vSmart</span>
+        <span class="skill-tag">OMP</span>
+        <span class="skill-tag">IPsec/BFD</span>
+        <span class="skill-tag">QoS</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🛣️</div>
+      <h3>Routing</h3>
+      <p>Solid routing fundamentals with practical experience in OSPF, BGP, and first-hop redundancy protocols.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">OSPF</span>
+        <span class="skill-tag">BGP</span>
+        <span class="skill-tag">HSRP/VRRP/GLBP</span>
+        <span class="skill-tag">VRF</span>
+        <span class="skill-tag">GRE</span>
+        <span class="skill-tag">CEF</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">⚙️</div>
+      <h3>Platforms & IOS-XE</h3>
+      <p>Deep platform knowledge including upgrades (ISSU/eFSU), ROMMON recovery, and install mode operations.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Catalyst 2K–9K</span>
+        <span class="skill-tag">IOS-XE</span>
+        <span class="skill-tag">ISSU/eFSU</span>
+        <span class="skill-tag">ROMMON</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🔍</div>
+      <h3>Diagnostics & Capture</h3>
+      <p>Advanced troubleshooting using packet captures, CPU/memory analysis, and traffic monitoring tools.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Wireshark</span>
+        <span class="skill-tag">SPAN/ERSPAN</span>
+        <span class="skill-tag">EPC</span>
+        <span class="skill-tag">NetFlow</span>
+        <span class="skill-tag">High-CPU</span>
+        <span class="skill-tag">TCAM</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🛡️</div>
+      <h3>Network Services</h3>
+      <p>Experience with DHCP, multicast, PoE, device automation, and security features across enterprise environments.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">DHCP Snooping</span>
+        <span class="skill-tag">IGMP</span>
+        <span class="skill-tag">PoE</span>
+        <span class="skill-tag">EEM</span>
+        <span class="skill-tag">KRON</span>
+        <span class="skill-tag">Syslog</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Certifications -->
+  <div class="reveal" style="margin-top: 4rem;">
+    <div class="section-label">Certifications</div>
+    <div class="certs-row">
+      <div class="cert-card">
+        <div class="cert-icon">🏅</div>
+        <div class="cert-info">
+          <h4>CCNA</h4>
+          <p>Cisco Certified Network Associate · ID: CSCO14166507</p>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🏅</div>
+        <div class="cert-info">
+          <h4>CCNP Enterprise — ENCOR</h4>
+          <p>Studies complete · Exam scheduled</p>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">📖</div>
+        <div class="cert-info">
+          <h4>CCNP Enterprise — ENARSI</h4>
+          <p>Currently in progress</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- Experience -->
+<section id="experience">
+  <div class="reveal">
+    <div class="section-label">Work Experience</div>
+    <div class="section-title">Career Journey</div>
+    <div class="section-subtitle">From trainee to TAC engineer — a progressive path in enterprise networking.</div>
+  </div>
+
+  <div class="timeline reveal">
+    <!-- SD-WAN -->
+    <div class="timeline-item">
+      <div class="timeline-date">Mar 2026 — Present</div>
+      <h3>TAC Engineer (Junior) — SD-WAN Team</h3>
+      <h4>Estarta Solutions · Cisco Systems · Amman, Jordan</h4>
+      <ul>
+        <li>Troubleshoot Cisco SD-WAN issues for global enterprise customers — from vManage misconfigurations and onboarding failures to controller upgrades</li>
+        <li>Dig into IPsec/BFD tunnel issues, OMP routing problems, and policy misconfigurations impacting customer connectivity</li>
+        <li>Collaborate with senior engineers and Cisco's BU team to identify, document, and escalate software bugs</li>
+      </ul>
+    </div>
+
+    <!-- Switching Junior -->
+    <div class="timeline-item">
+      <div class="timeline-date">Jan 2026 — Feb 2026</div>
+      <h3>TAC Engineer (Junior) — Switching Team</h3>
+      <h4>Estarta Solutions · Cisco Systems · Amman, Jordan</h4>
+      <ul>
+        <li>Handled switching cases on Catalyst 2K through 9K platforms, from everyday connectivity issues to critical production outages</li>
+        <li>Used lab environments to reproduce customer issues — StackWise failures, SSO/NSF behavior, and STP convergence problems</li>
+        <li>Performed traffic analysis using SPAN, ERSPAN, EPC, and Wireshark for High-CPU, TCAM exhaustion, and memory issues</li>
+        <li>Carried out IOS-XE upgrades using ISSU and eFSU on Catalyst 9K/6K/4K switches</li>
+      </ul>
+    </div>
+
+    <!-- Switching Associate -->
+    <div class="timeline-item">
+      <div class="timeline-date">Mar 2025 — Dec 2025</div>
+      <h3>TAC Engineer (Associate) — Switching Team</h3>
+      <h4>Estarta Solutions · Cisco Systems · Amman, Jordan</h4>
+      <ul>
+        <li>Managed real customer cases on Catalyst platforms with increasing independence</li>
+        <li>Applied STP, EtherChannel, StackWise, and FHRP knowledge daily across a broad range of issues</li>
+      </ul>
+    </div>
+
+    <!-- Switching Trainee -->
+    <div class="timeline-item">
+      <div class="timeline-date">Dec 2024 — Feb 2025</div>
+      <h3>TAC Engineer (Trainee) — Switching Team</h3>
+      <h4>Estarta Solutions · Cisco Systems · Amman, Jordan</h4>
+      <ul>
+        <li>Completed structured training on Catalyst L2/L3 technologies — VLANs, STP/RSTP/MST, EtherChannel, FHRP</li>
+        <li>Practiced hands-on troubleshooting through Kill Sessions and lab simulations, including ROMMON recovery and password reset</li>
+      </ul>
+    </div>
+
+    <!-- Huawei Engineer -->
+    <div class="timeline-item">
+      <div class="timeline-date">Aug 2024 — Oct 2024</div>
+      <h3>IP Networking Engineer — Routing Team</h3>
+      <h4>Huawei · Amman, Jordan</h4>
+      <ul>
+        <li>Worked on enterprise routing solutions, tuning OSPF and BGP configurations to improve stability and convergence</li>
+        <li>Set up redundancy mechanisms and verified routing paths for link/device failure scenarios</li>
+        <li>Resolved Layer 3 routing issues in live customer environments with minimal production impact</li>
+      </ul>
+    </div>
+
+    <!-- Huawei Trainee -->
+    <div class="timeline-item">
+      <div class="timeline-date">May 2024 — Jul 2024</div>
+      <h3>IP Networking Trainee — Routing Team</h3>
+      <h4>Huawei · Amman, Jordan</h4>
+      <ul>
+        <li>Configured and troubleshot Huawei routers in lab and production environments</li>
+        <li>Assisted with reviewing and validating routing designs for enterprise customers</li>
+      </ul>
+    </div>
+
+    <!-- Seven Gate -->
+    <div class="timeline-item">
+      <div class="timeline-date">Sep 2023 — Jan 2024</div>
+      <h3>Enterprise Switching Trainee</h3>
+      <h4>Seven Gate LLC · Amman, Jordan</h4>
+      <ul>
+        <li>Configured VLANs, STP, Port Security, and EtherChannel on Cisco and Ruckus switches</li>
+        <li>Troubleshot connectivity issues and maintained switching environment stability</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Education -->
+  <div class="reveal" style="margin-top: 4rem;">
+    <div class="section-label">Education</div>
+    <div class="edu-card">
+      <div class="edu-icon">🎓</div>
+      <div class="edu-info">
+        <h4>Bachelor of Computer Engineering</h4>
+        <p>Al-Balqa' Applied University · Salt, Jordan · Feb 2021 – Oct 2024</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- Contact -->
+<section id="contact">
+  <div class="reveal">
+    <div class="section-label">Get in Touch</div>
+    <div class="section-title">Let's Connect</div>
+    <div class="section-subtitle">Open to new opportunities, collaborations, and interesting conversations.</div>
+  </div>
+
+  <div class="contact-wrapper reveal">
+    <div class="contact-info-block">
+      <h3>Reach Out</h3>
+      <p>Whether you have a project in mind, a technical challenge, or a career opportunity — I'd love to hear from you.</p>
+      <div class="contact-links">
+        <a href="mailto:mohammadabusaa66@gmail.com" class="contact-link">
+          <span class="c-icon">✉</span>
+          <span>mohammadabusaa66@gmail.com</span>
+        </a>
+        <a href="tel:+962788231836" class="contact-link">
+          <span class="c-icon">📱</span>
+          <span>+962 788 231 836</span>
+        </a>
+        <a href="https://www.linkedin.com/in/mohammad-abusaa-94b093305/" target="_blank" class="contact-link">
+          <span class="c-icon">in</span>
+          <span>linkedin.com/in/mohammad-abusaa</span>
+        </a>
+        <a href="#" class="contact-link">
+          <span class="c-icon">📍</span>
+          <span>Amman, Jordan</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <input type="text" placeholder="Your Name">
+      <input type="email" placeholder="Your Email">
+      <input type="text" placeholder="Subject">
+      <textarea placeholder="Your Message..."></textarea>
+      <button class="btn-primary" style="align-self: flex-start;">Send Message</button>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>© 2026 Mohammad Abusaa — Cisco TAC Engineer · Built with precision.</p>
+</footer>
+
+<!-- Scripts -->
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+  reveals.forEach(el => observer.observe(el));
+
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 50) {
+      nav.style.padding = '0.8rem 3rem';
+      nav.style.boxShadow = '0 4px 30px rgba(0,0,0,0.3)';
+    } else {
+      nav.style.padding = '1.2rem 3rem';
+      nav.style.boxShadow = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>
