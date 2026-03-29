@@ -1,11 +1,11 @@
 /* ═══════════════════════════════════════════════════════
    Mohammad Abusaa — Portfolio JavaScript
-   Features: AOS init, Typing effect, Particles, 
-   Counter animation, Scroll spy, Navbar, Back to top
+   Features: Preloader, AOS, Typing, Particles, Counters,
+   Scroll spy, Navbar, Theme toggle, Language bars, Tilt
    ═══════════════════════════════════════════════════════ */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Initialize all modules
+  initPreloader();
   initAOS();
   initTypingEffect();
   initParticles();
@@ -17,7 +17,50 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initTiltEffect();
   initNavHighlight();
+  initThemeToggle();
+  initLanguageBars();
 });
+
+/* ── Preloader ── */
+function initPreloader() {
+  const preloader = document.getElementById('preloader');
+  if (!preloader) return;
+
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      preloader.classList.add('hidden');
+      setTimeout(() => preloader.remove(), 500);
+    }, 1600);
+  });
+
+  // Fallback — remove after 4 seconds max
+  setTimeout(() => {
+    if (preloader && !preloader.classList.contains('hidden')) {
+      preloader.classList.add('hidden');
+      setTimeout(() => preloader.remove(), 500);
+    }
+  }, 4000);
+}
+
+/* ── Theme Toggle (Dark/Light) ── */
+function initThemeToggle() {
+  const toggle = document.getElementById('themeToggle');
+  const icon = document.getElementById('themeIcon');
+  if (!toggle || !icon) return;
+
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'light') {
+    document.body.classList.add('light-mode');
+    icon.className = 'bi bi-sun';
+  }
+
+  toggle.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+    const isLight = document.body.classList.contains('light-mode');
+    icon.className = isLight ? 'bi bi-sun' : 'bi bi-moon-stars';
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  });
+}
 
 /* ── AOS (Animate on Scroll) ── */
 function initAOS() {
@@ -25,8 +68,7 @@ function initAOS() {
     duration: 800,
     easing: 'ease-out-cubic',
     once: true,
-    offset: 80,
-    disable: window.innerWidth < 768 ? 'phone' : false
+    offset: 80
   });
 }
 
@@ -62,18 +104,17 @@ function initTypingEffect() {
     }
 
     if (!isDeleting && charIndex === currentPhrase.length) {
-      typingSpeed = 2000; // Pause at end
+      typingSpeed = 2000;
       isDeleting = true;
     } else if (isDeleting && charIndex === 0) {
       isDeleting = false;
       phraseIndex = (phraseIndex + 1) % phrases.length;
-      typingSpeed = 500; // Pause before next phrase
+      typingSpeed = 500;
     }
 
     setTimeout(type, typingSpeed);
   }
 
-  // Start after a delay
   setTimeout(type, 1500);
 }
 
@@ -88,7 +129,6 @@ function initParticles() {
     const particle = document.createElement('div');
     particle.classList.add('particle');
 
-    // Random properties
     const size = Math.random() * 3 + 1;
     const left = Math.random() * 100;
     const delay = Math.random() * 15;
@@ -113,22 +153,14 @@ function initNavbar() {
   const navbar = document.getElementById('mainNav');
   if (!navbar) return;
 
-  let lastScroll = 0;
-
   window.addEventListener('scroll', () => {
-    const currentScroll = window.scrollY;
-
-    // Add/remove scrolled class
-    if (currentScroll > 50) {
+    if (window.scrollY > 50) {
       navbar.classList.add('scrolled');
     } else {
       navbar.classList.remove('scrolled');
     }
-
-    lastScroll = currentScroll;
   }, { passive: true });
 
-  // Close mobile menu on link click
   const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
   const navCollapse = document.getElementById('navMenu');
 
@@ -167,10 +199,10 @@ function initScrollSpy() {
   }
 
   window.addEventListener('scroll', updateActiveLink, { passive: true });
-  updateActiveLink(); // Initial check
+  updateActiveLink();
 }
 
-/* ── Counter Animation ── */
+/* ── Counter Animation (FIXED) ── */
 function initCounters() {
   const counters = document.querySelectorAll('[data-count]');
   if (!counters.length) return;
@@ -184,27 +216,53 @@ function initCounters() {
         observer.unobserve(el);
       }
     });
-  }, { threshold: 0.5 });
+  }, { threshold: 0.3, rootMargin: '0px 0px -20px 0px' });
 
   counters.forEach(counter => observer.observe(counter));
 }
 
 function animateCounter(element, target) {
-  let current = 0;
-  const duration = 2000;
-  const step = target / (duration / 16);
+  const duration = 1500;
+  const startTime = performance.now();
 
-  function update() {
-    current += step;
-    if (current >= target) {
+  function update(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = Math.round(eased * target);
+
+    element.textContent = current;
+
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    } else {
       element.textContent = target;
-      return;
     }
-    element.textContent = Math.floor(current);
-    requestAnimationFrame(update);
   }
 
   requestAnimationFrame(update);
+}
+
+/* ── Language Bar Animation ── */
+function initLanguageBars() {
+  const bars = document.querySelectorAll('.lang-progress');
+  if (!bars.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const bar = entry.target;
+        const targetWidth = bar.style.width;
+        bar.style.width = '0%';
+        setTimeout(() => {
+          bar.style.width = targetWidth;
+        }, 200);
+        observer.unobserve(bar);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  bars.forEach(bar => observer.observe(bar));
 }
 
 /* ── Back to Top Button ── */
@@ -250,12 +308,9 @@ function initContactForm() {
     const btn = form.querySelector('button[type="submit"]');
     const originalText = btn.innerHTML;
 
-    // Show loading
     btn.innerHTML = '<i class="bi bi-hourglass-split me-2"></i>Sending...';
     btn.disabled = true;
 
-    // If using Formspree, let form submit naturally
-    // If no Formspree ID set, prevent default and show demo
     if (form.action.includes('xplaceholder')) {
       e.preventDefault();
       setTimeout(() => {
@@ -278,7 +333,7 @@ function initContactForm() {
 function initTiltEffect() {
   if (window.innerWidth < 768) return;
 
-  const cards = document.querySelectorAll('.project-card, .award-card, .skill-card');
+  const cards = document.querySelectorAll('.project-card, .award-card, .skill-card, .wid-card');
 
   cards.forEach(card => {
     card.addEventListener('mousemove', (e) => {
@@ -287,8 +342,8 @@ function initTiltEffect() {
       const y = e.clientY - rect.top;
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
-      const rotateX = (y - centerY) / 20;
-      const rotateY = (centerX - x) / 20;
+      const rotateX = (y - centerY) / 25;
+      const rotateY = (centerX - x) / 25;
 
       card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
     });
