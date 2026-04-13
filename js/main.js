@@ -82,7 +82,8 @@ function initTypingEffect() {
     'Enterprise Network Troubleshooting',
     'IOS-XE Platform Diagnostics',
     'Controller Upgrades & Migrations',
-    'IPsec/BFD Tunnel Debugging'
+    'IPsec/BFD Tunnel Debugging',
+    'CCIE Enterprise Infrastructure'
   ];
 
   let phraseIndex = 0;
