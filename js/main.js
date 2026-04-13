@@ -1,21 +1,19 @@
 /* ═══════════════════════════════════════════════════════
    Mohammad Abusaa — Portfolio JavaScript
-   Features: Preloader, AOS, Typing, Particles, Counters,
-   Scroll spy, Navbar, Theme toggle, Language bars, Tilt
+   Features: Preloader, AOS, Typing, Counters,
+   Scroll spy, Navbar, Theme toggle, Language bars
    ═══════════════════════════════════════════════════════ */
 
 document.addEventListener('DOMContentLoaded', () => {
   initPreloader();
   initAOS();
   initTypingEffect();
-  initParticles();
   initNavbar();
   initScrollSpy();
   initCounters();
   initBackToTop();
   initSmoothScroll();
   initContactForm();
-  initTiltEffect();
   initNavHighlight();
   initThemeToggle();
   initLanguageBars();
@@ -117,36 +115,6 @@ function initTypingEffect() {
   }
 
   setTimeout(type, 1500);
-}
-
-/* ── Floating Particles ── */
-function initParticles() {
-  const container = document.getElementById('particles');
-  if (!container) return;
-
-  const particleCount = window.innerWidth < 768 ? 15 : 30;
-
-  for (let i = 0; i < particleCount; i++) {
-    const particle = document.createElement('div');
-    particle.classList.add('particle');
-
-    const size = Math.random() * 3 + 1;
-    const left = Math.random() * 100;
-    const delay = Math.random() * 15;
-    const duration = Math.random() * 15 + 10;
-    const opacity = Math.random() * 0.5 + 0.2;
-
-    particle.style.cssText = `
-      width: ${size}px;
-      height: ${size}px;
-      left: ${left}%;
-      animation-delay: ${delay}s;
-      animation-duration: ${duration}s;
-      opacity: ${opacity};
-    `;
-
-    container.appendChild(particle);
-  }
 }
 
 /* ── Navbar Scroll Effect ── */
@@ -327,31 +295,6 @@ function initContactForm() {
         }, 3000);
       }, 1000);
     }
-  });
-}
-
-/* ── Card Tilt Effect ── */
-function initTiltEffect() {
-  if (window.innerWidth < 768) return;
-
-  const cards = document.querySelectorAll('.project-card, .award-card, .skill-card, .wid-card');
-
-  cards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      const rotateX = (y - centerY) / 25;
-      const rotateY = (centerX - x) / 25;
-
-      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
-    });
-
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = '';
-    });
   });
 }
 
