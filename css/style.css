@@ -873,6 +873,22 @@ body::before {
   50% { box-shadow: 0 0 12px 2px rgba(16, 185, 129, 0.15); }
 }
 
+/* Past certification (expired, superseded by a higher level) */
+.cert-card-past:hover { border-color: rgba(148, 163, 184, 0.35); }
+
+.cert-icon-past {
+  background: rgba(148, 163, 184, 0.08);
+  border-color: rgba(148, 163, 184, 0.25);
+  color: var(--text-300);
+}
+
+.cert-status-past {
+  background: rgba(148, 163, 184, 0.08);
+  border-color: rgba(148, 163, 184, 0.25);
+  color: var(--text-300);
+  animation: none;
+}
+
 /* Featured certification — CCNP Enterprise */
 .cert-featured {
   display: flex;
