@@ -1,14 +1,11 @@
 /* ═══════════════════════════════════════════════════════
    Mohammad Abusaa — Portfolio JavaScript
-   Features: Preloader, AOS, Typing, Durations, Counters,
-   Scroll spy, Navbar, Theme toggle, Language bars,
-   AJAX contact form
+   Features: AOS, Durations, Counters, Scroll spy, Navbar,
+   Theme toggle, AJAX contact form
    ═══════════════════════════════════════════════════════ */
 
 document.addEventListener('DOMContentLoaded', () => {
-  initPreloader();
   initAOS();
-  initTypingEffect();
   initNavbar();
   initScrollSpy();
   initDurations();   // must run before counters read data-count
@@ -17,24 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initContactForm();
   initThemeToggle();
-  initLanguageBars();
   initFooterYear();
 });
 
-/* ── Preloader ── */
-function initPreloader() {
-  const preloader = document.getElementById('preloader');
-  if (!preloader) return;
-
-  const hide = () => {
-    if (preloader.classList.contains('hidden')) return;
-    preloader.classList.add('hidden');
-    setTimeout(() => preloader.remove(), 500);
-  };
-
-  window.addEventListener('load', () => setTimeout(hide, 400));
-  setTimeout(hide, 2500); // fallback — never block the page
-}
+const REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* ── Theme Toggle (Dark/Light) ── */
 function initThemeToggle() {
@@ -48,6 +31,7 @@ function initThemeToggle() {
   if (saved === 'light') {
     document.body.classList.add('light-mode');
     icon.className = 'bi bi-sun';
+    toggle.setAttribute('aria-pressed', 'true');
   }
 
   toggle.addEventListener('click', () => {
@@ -63,65 +47,12 @@ function initThemeToggle() {
 function initAOS() {
   if (typeof AOS === 'undefined') return;
   AOS.init({
-    duration: 800,
+    duration: 700,
     easing: 'ease-out-cubic',
     once: true,
     offset: 80,
-    disable: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    disable: REDUCED_MOTION
   });
-}
-
-/* ── Typing Effect ── */
-function initTypingEffect() {
-  const element = document.getElementById('typedText');
-  if (!element) return;
-
-  const phrases = [
-    'SD-WAN & Catalyst Switching',
-    'Enterprise Network Troubleshooting',
-    'IOS-XE Platform Diagnostics',
-    'Controller Upgrades & Migrations',
-    'IPsec/BFD Tunnel Debugging',
-    'CCIE Enterprise Infrastructure'
-  ];
-
-  // Respect reduced-motion: show the first phrase statically
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    element.textContent = phrases[0];
-    return;
-  }
-
-  let phraseIndex = 0;
-  let charIndex = 0;
-  let isDeleting = false;
-  let typingSpeed = 80;
-
-  function type() {
-    const currentPhrase = phrases[phraseIndex];
-
-    if (isDeleting) {
-      element.textContent = currentPhrase.substring(0, charIndex - 1);
-      charIndex--;
-      typingSpeed = 40;
-    } else {
-      element.textContent = currentPhrase.substring(0, charIndex + 1);
-      charIndex++;
-      typingSpeed = 80;
-    }
-
-    if (!isDeleting && charIndex === currentPhrase.length) {
-      typingSpeed = 2000;
-      isDeleting = true;
-    } else if (isDeleting && charIndex === 0) {
-      isDeleting = false;
-      phraseIndex = (phraseIndex + 1) % phrases.length;
-      typingSpeed = 500;
-    }
-
-    setTimeout(type, typingSpeed);
-  }
-
-  setTimeout(type, 1500);
 }
 
 /* ── Navbar Scroll Effect + auto-collapse on mobile ── */
@@ -222,14 +153,12 @@ function initCounters() {
   const counters = document.querySelectorAll('[data-count]');
   if (!counters.length) return;
 
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
       const el = entry.target;
       const target = parseInt(el.getAttribute('data-count'), 10) || 0;
-      if (reduce) el.textContent = target;
+      if (REDUCED_MOTION) el.textContent = target;
       else animateCounter(el, target);
       observer.unobserve(el);
     });
@@ -239,7 +168,7 @@ function initCounters() {
 }
 
 function animateCounter(element, target) {
-  const duration = 1500;
+  const duration = 1200;
   const startTime = performance.now();
 
   function update(currentTime) {
@@ -253,25 +182,6 @@ function animateCounter(element, target) {
   requestAnimationFrame(update);
 }
 
-/* ── Language Bar Animation ── */
-function initLanguageBars() {
-  const bars = document.querySelectorAll('.lang-progress');
-  if (!bars.length) return;
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      const bar = entry.target;
-      const targetWidth = bar.style.width;
-      bar.style.width = '0%';
-      setTimeout(() => { bar.style.width = targetWidth; }, 200);
-      observer.unobserve(bar);
-    });
-  }, { threshold: 0.5 });
-
-  bars.forEach(bar => observer.observe(bar));
-}
-
 /* ── Back to Top Button ── */
 function initBackToTop() {
   const btn = document.getElementById('backToTop');
@@ -282,7 +192,7 @@ function initBackToTop() {
   }, { passive: true });
 
   btn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: REDUCED_MOTION ? 'auto' : 'smooth' });
   });
 }
 
@@ -296,8 +206,10 @@ function initSmoothScroll() {
       const target = document.querySelector(targetId);
       if (target) {
         e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        target.scrollIntoView({ behavior: REDUCED_MOTION ? 'auto' : 'smooth', block: 'start' });
         history.replaceState(null, '', targetId);
+        // Keep keyboard focus in sync for the skip link and nav
+        if (this.classList.contains('skip-link')) target.setAttribute('tabindex', '-1'), target.focus();
       }
     });
   });
@@ -333,7 +245,7 @@ function initContactForm() {
 
     if (btn) {
       btn.disabled = true;
-      btn.innerHTML = '<i class="bi bi-hourglass-split me-2"></i>Sending…';
+      btn.innerHTML = '<i class="bi bi-hourglass-split me-2" aria-hidden="true"></i>Sending…';
     }
     setStatus('', '');
 

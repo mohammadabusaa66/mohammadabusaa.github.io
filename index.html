@@ -82,20 +82,12 @@
 </head>
 <body>
 
-  <!-- ═══════════════════════════════════════════ -->
-  <!-- PRELOADER                                   -->
-  <!-- ═══════════════════════════════════════════ -->
-  <div class="preloader" id="preloader">
-    <div class="preloader-inner">
-      <div class="preloader-logo">M<span>.</span>A</div>
-      <div class="preloader-bar"><div class="preloader-progress"></div></div>
-    </div>
-  </div>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- ═══════════════════════════════════════════ -->
   <!-- NAVBAR                                      -->
   <!-- ═══════════════════════════════════════════ -->
-  <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNav" aria-label="Main">
     <div class="container">
       <a class="navbar-brand" href="#">M<span class="text-accent">.</span>Abusaa</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
@@ -103,12 +95,13 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navMenu">
-        <ul class="navbar-nav gap-lg-4">
+        <ul class="navbar-nav gap-lg-3 gap-xl-4 align-items-lg-center">
           <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#awards">Awards</a></li>
-          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
           <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
           <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#awards">Awards</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
           <li class="nav-item ms-lg-2">
             <button class="theme-toggle" id="themeToggle" type="button" title="Toggle theme" aria-label="Toggle light and dark theme" aria-pressed="false">
@@ -119,6 +112,8 @@
       </div>
     </div>
   </nav>
+
+  <main id="main">
 
   <!-- ═══════════════════════════════════════════ -->
   <!-- HERO                                        -->
@@ -135,32 +130,28 @@
             <span class="text-gradient">Abusaa</span><span class="text-accent">.</span>
           </h1>
           <p class="hero-subtitle hero-anim hero-anim-3">
-            Cisco TAC Engineer specializing in
-            <span class="typed-text" id="typedText"></span><span class="typed-cursor">|</span>
+            Cisco TAC Engineer on the SD-WAN team at Estarta Solutions, troubleshooting SD-WAN overlays and Catalyst switching for global enterprise customers.
           </p>
           <div class="hero-badges hero-anim hero-anim-4">
             <span class="badge-custom">
-              <i class="bi bi-geo-alt"></i> Amman, Jordan
+              <i class="bi bi-geo-alt" aria-hidden="true"></i> Amman, Jordan
             </span>
             <span class="badge-custom badge-blue">
-              <i class="bi bi-patch-check-fill"></i> CCNP Enterprise
+              <i class="bi bi-patch-check-fill" aria-hidden="true"></i> CCNP Enterprise
             </span>
             <span class="badge-custom badge-gold">
-              <i class="bi bi-trophy"></i> ICT World Champion 2025
+              <i class="bi bi-trophy" aria-hidden="true"></i> ICT World Champion 2025
             </span>
             <span class="badge-custom badge-ccie">
-              <i class="bi bi-mortarboard"></i> CCIE Candidate
+              <i class="bi bi-mortarboard" aria-hidden="true"></i> CCIE EI · In Preparation
             </span>
           </div>
           <div class="hero-cta hero-anim hero-anim-5">
             <a href="#contact" class="btn btn-accent btn-lg">
-              <i class="bi bi-envelope me-2"></i>Get in Touch
-            </a>
-            <a href="#experience" class="btn btn-outline-light btn-lg">
-              <i class="bi bi-arrow-down-circle me-2"></i>View Experience
+              <i class="bi bi-envelope me-2" aria-hidden="true"></i>Get in Touch
             </a>
             <a href="Mohammad_Abusaa_CV.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light btn-lg">
-              <i class="bi bi-file-earmark-pdf me-2"></i>Download CV
+              <i class="bi bi-file-earmark-pdf me-2" aria-hidden="true"></i>Download CV
             </a>
           </div>
         </div>
@@ -178,11 +169,6 @@
       <a href="mailto:mohammadabusaa66@gmail.com" title="Email" aria-label="Send an email"><i class="bi bi-envelope" aria-hidden="true"></i></a>
       <a href="tel:+962788231836" title="Phone" aria-label="Call by phone"><i class="bi bi-telephone" aria-hidden="true"></i></a>
       <div class="social-line"></div>
-    </div>
-    <!-- Scroll indicator -->
-    <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="1400">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
     </div>
   </header>
 
@@ -230,271 +216,8 @@
             <div class="col-6">
               <div class="stat-card stat-card-text stat-card-ccie">
                 <span class="stat-big-text">CCIE</span>
-                <span class="stat-label">Next Goal</span>
+                <span class="stat-label">In Preparation</span>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════ -->
-  <!-- AWARDS                                      -->
-  <!-- ═══════════════════════════════════════════ -->
-  <section class="section-padding section-alt" id="awards">
-    <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <span class="section-label"><span class="label-line"></span> Awards & Achievements</span>
-        <h2 class="section-title">Recognition & Awards</h2>
-        <p class="section-subtitle">Competing and winning at the highest levels of global networking competitions — and recognized for the same standards at work.</p>
-      </div>
-
-      <div class="awards-subhead" data-aos="fade-up">
-        <h3>Huawei ICT Competition</h3>
-      </div>
-
-      <div class="row g-4 mt-2">
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="award-card">
-            <div class="award-icon award-gold" aria-hidden="true"><i class="bi bi-trophy-fill"></i></div>
-            <h4>1st Prize — World Final</h4>
-            <p>Huawei ICT Competition 2025</p>
-            <span class="award-badge">Global Champion</span>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-          <div class="award-card">
-            <div class="award-icon award-gold" aria-hidden="true"><i class="bi bi-trophy-fill"></i></div>
-            <h4>Grand Prize — ME&CA Final</h4>
-            <p>Middle East & Central Asia 2024</p>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-          <div class="award-card">
-            <div class="award-icon award-gold" aria-hidden="true"><i class="bi bi-trophy-fill"></i></div>
-            <h4>Grand Prize — Jordan Final</h4>
-            <p>Jordan National 2024</p>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-          <div class="award-card">
-            <div class="award-icon award-silver" aria-hidden="true"><i class="bi bi-trophy-fill"></i></div>
-            <h4>2nd Prize — World Final</h4>
-            <p>Huawei ICT Competition 2024</p>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-          <div class="award-card">
-            <div class="award-icon award-bronze" aria-hidden="true"><i class="bi bi-trophy-fill"></i></div>
-            <h4>3rd Prize — ME&CA Final</h4>
-            <p>Middle East & Central Asia 2023</p>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-          <div class="award-card">
-            <div class="award-icon award-gold" aria-hidden="true"><i class="bi bi-trophy-fill"></i></div>
-            <h4>1st Prize — Jordan Final</h4>
-            <p>Jordan National 2023</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="awards-subhead awards-subhead-spaced" data-aos="fade-up">
-        <h3>Workplace Recognition</h3>
-      </div>
-
-      <div class="row g-4 justify-content-center">
-        <div class="col-lg-11" data-aos="fade-up" data-aos-delay="100">
-          <div class="recognition-card">
-            <a class="recognition-media" href="assets/img/estarta-certificate-q4y26.jpg" target="_blank" rel="noopener"
-               aria-label="View full-size Estarta Certificate of Appreciation">
-              <img src="assets/img/estarta-certificate-q4y26.jpg"
-                   alt="Estarta Certificate of Appreciation awarded to Mohammad Abusaa, TAC-ENT-SDWAN-SHIFT3, Q4Y26"
-                   loading="lazy" width="800" height="597">
-            </a>
-            <div class="recognition-body">
-              <span class="recognition-tag">Estarta Solutions · Q4Y26</span>
-              <h4>Certificate of Appreciation</h4>
-              <p class="recognition-team">TAC-ENT-SDWAN-SHIFT3</p>
-              <p class="recognition-quote">“Thank you for being a great ambassador of Estarta's excellence standards.”</p>
-              <span class="recognition-signer">Presented by Leith Masri, Chairman</span>
-
-              <figure class="recognition-photo">
-                <img src="assets/img/estarta-recognition-ceremony.jpg"
-                     alt="Mohammad Abusaa with colleagues at the Estarta award presentation"
-                     loading="lazy" width="160" height="106">
-                <figcaption>Award presentation at Estarta</figcaption>
-              </figure>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════ -->
-  <!-- SKILLS                                      -->
-  <!-- ═══════════════════════════════════════════ -->
-  <section class="section-padding" id="skills">
-    <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <span class="section-label"><span class="label-line"></span> Skills & Certifications</span>
-        <h2 class="section-title">Technical Expertise</h2>
-        <p class="section-subtitle">Core competencies built through real-world enterprise network operations and TAC case work.</p>
-      </div>
-
-      <div class="row g-4 mt-2">
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="skill-card">
-            <div class="skill-icon"><i class="bi bi-diagram-3"></i></div>
-            <h3>Enterprise Switching</h3>
-            <p>Advanced L2/L3 switching, stack troubleshooting, and platform diagnostics across the full Catalyst portfolio.</p>
-            <div class="skill-tags">
-              <span>VLANs</span><span>STP/RSTP/MST</span><span>EtherChannel</span>
-              <span>StackWise</span><span>SSO/NSF</span><span>REP</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-          <div class="skill-card">
-            <div class="skill-icon"><i class="bi bi-globe2"></i></div>
-            <h3>Cisco SD-WAN</h3>
-            <p>Full SD-WAN lifecycle — controller deployments, edge onboarding, tunnel debugging, and overlay management.</p>
-            <div class="skill-tags">
-              <span>vManage</span><span>vBond</span><span>vSmart</span>
-              <span>OMP</span><span>IPsec/BFD</span><span>QoS</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-          <div class="skill-card">
-            <div class="skill-icon"><i class="bi bi-signpost-split"></i></div>
-            <h3>Routing</h3>
-            <p>Solid routing fundamentals with practical experience in OSPF, BGP, and first-hop redundancy protocols.</p>
-            <div class="skill-tags">
-              <span>OSPF</span><span>BGP</span><span>HSRP/VRRP/GLBP</span>
-              <span>VRF</span><span>GRE</span><span>CEF</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-          <div class="skill-card">
-            <div class="skill-icon"><i class="bi bi-cpu"></i></div>
-            <h3>Platforms & IOS-XE</h3>
-            <p>Deep platform knowledge including upgrades (ISSU/eFSU), ROMMON recovery, and install mode operations.</p>
-            <div class="skill-tags">
-              <span>Catalyst 2K–9K</span><span>IOS-XE</span>
-              <span>ISSU/eFSU</span><span>ROMMON</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-          <div class="skill-card">
-            <div class="skill-icon"><i class="bi bi-search"></i></div>
-            <h3>Diagnostics & Capture</h3>
-            <p>Advanced troubleshooting using packet captures, CPU/memory analysis, and traffic monitoring tools.</p>
-            <div class="skill-tags">
-              <span>Wireshark</span><span>SPAN/ERSPAN</span><span>EPC</span>
-              <span>NetFlow</span><span>High-CPU</span><span>TCAM</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-          <div class="skill-card">
-            <div class="skill-icon"><i class="bi bi-shield-check"></i></div>
-            <h3>Network Services</h3>
-            <p>Experience with DHCP, multicast, PoE, device automation, and security features across enterprise environments.</p>
-            <div class="skill-tags">
-              <span>DHCP Snooping</span><span>IGMP</span><span>PoE</span>
-              <span>EEM</span><span>KRON</span><span>Syslog</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Certifications -->
-      <div class="mt-5 pt-4" id="certifications" data-aos="fade-up">
-        <span class="section-label"><span class="label-line"></span> Certifications</span>
-
-        <!-- Featured — CCNP Enterprise -->
-        <div class="cert-featured mt-3">
-          <a class="cert-featured-preview" href="assets/certs/cisco-ccnp-enterprise.pdf" target="_blank" rel="noopener noreferrer"
-             aria-label="Open the CCNP Enterprise certificate (PDF)">
-            <img src="assets/certs/cisco-ccnp-enterprise.jpg"
-                 alt="Cisco Certified Network Professional Enterprise certificate awarded to Mohammad Abusaa, certified April 6, 2026"
-                 loading="lazy" width="1000" height="773">
-          </a>
-          <div class="cert-featured-body">
-            <span class="cert-level"><i class="bi bi-patch-check-fill" aria-hidden="true"></i> Professional Level · Active</span>
-            <h3>CCNP Enterprise</h3>
-            <p class="cert-fullname">Cisco Certified Network Professional Enterprise</p>
-            <dl class="cert-meta">
-              <div><dt>Certified</dt><dd>April 6, 2026</dd></div>
-              <div><dt>Valid through</dt><dd>April 6, 2029</dd></div>
-              <div><dt>Cisco ID</dt><dd>CSCO14166507</dd></div>
-            </dl>
-            <p class="cert-note">Earned by passing ENCOR 350-401 (core) and ENSDWI 300-415 (SD-WAN concentration).</p>
-            <div class="cert-actions">
-              <a href="assets/certs/cisco-ccnp-enterprise.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-accent btn-sm">
-                <i class="bi bi-file-earmark-pdf me-1" aria-hidden="true"></i> View certificate
-              </a>
-              <a href="https://www.cisco.com/go/verifycertificate" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light btn-sm">
-                <i class="bi bi-shield-check me-1" aria-hidden="true"></i> Verify with Cisco
-              </a>
-            </div>
-            <span class="cert-verify">Verification No. 19bcc3627c384a9685488b668f8dec1a</span>
-          </div>
-        </div>
-
-        <div class="row g-4 mt-1">
-          <div class="col-lg-6">
-            <div class="cert-card cert-card-doc">
-              <a class="cert-thumb" href="assets/certs/cisco-specialist-enterprise-core.pdf" target="_blank" rel="noopener noreferrer"
-                 aria-label="Open the Cisco Certified Specialist – Enterprise Core certificate (PDF)">
-                <img src="assets/certs/cisco-specialist-enterprise-core.jpg" alt="" loading="lazy" width="1000" height="773">
-              </a>
-              <div>
-                <h4>Cisco Certified Specialist – Enterprise Core</h4>
-                <p>ENCOR 350-401 · Certified Mar 28, 2026 · Valid through Apr 6, 2029</p>
-                <span class="cert-verify">Verification No. 8a88518b184148e9a5bd16b413c1bbc6</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="cert-card cert-card-doc">
-              <a class="cert-thumb" href="assets/certs/cisco-specialist-enterprise-sdwan.pdf" target="_blank" rel="noopener noreferrer"
-                 aria-label="Open the Cisco Certified Specialist – Enterprise SD-WAN certificate (PDF)">
-                <img src="assets/certs/cisco-specialist-enterprise-sdwan.jpg" alt="" loading="lazy" width="1000" height="773">
-              </a>
-              <div>
-                <h4>Cisco Certified Specialist – Enterprise SD-WAN</h4>
-                <p>ENSDWI 300-415 · Certified Apr 6, 2026 · Valid through Apr 6, 2029</p>
-                <span class="cert-verify">Verification No. 263beae61d0c45c5b21c07b831f82577</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row g-4 mt-1">
-          <div class="col-lg-6">
-            <div class="cert-card cert-card-past">
-              <div class="cert-icon cert-icon-past"><i class="bi bi-patch-check" aria-hidden="true"></i></div>
-              <div>
-                <h4>CCNA</h4>
-                <p>Cisco Certified Network Associate · Jan 2023 – Jan 2026 · Superseded by CCNP Enterprise</p>
-              </div>
-              <span class="cert-status-badge cert-status-past">Superseded</span>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="cert-card cert-card-ccie">
-              <div class="cert-icon cert-icon-ccie"><i class="bi bi-rocket-takeoff-fill" aria-hidden="true"></i></div>
-              <div>
-                <h4>CCIE Enterprise Infrastructure</h4>
-                <p>Cisco Certified Internetwork Expert · Currently Preparing</p>
-              </div>
-              <span class="cert-status-badge">In Progress</span>
             </div>
           </div>
         </div>
@@ -509,7 +232,7 @@
     <div class="container">
       <div class="section-header" data-aos="fade-up">
         <span class="section-label"><span class="label-line"></span> Work Experience</span>
-        <h2 class="section-title">Career Journey</h2>
+        <h2 class="section-title">Experience</h2>
         <p class="section-subtitle">From enterprise switching and service provider routing into Cisco TAC — trainee to junior engineer across switching and SD-WAN.</p>
       </div>
 
@@ -621,7 +344,7 @@
       <div class="mt-5 pt-4" data-aos="fade-up">
         <span class="section-label"><span class="label-line"></span> Education</span>
         <div class="edu-card mt-3">
-          <div class="edu-icon"><i class="bi bi-mortarboard-fill"></i></div>
+          <div class="edu-icon"><i class="bi bi-mortarboard-fill" aria-hidden="true"></i></div>
           <div>
             <h4>Bachelor of Computer Engineering</h4>
             <p>Al-Balqa' Applied University · Salt, Jordan · Feb 2021 – Oct 2024</p>
@@ -635,20 +358,191 @@
         <div class="row g-4 mt-2">
           <div class="col-md-6">
             <div class="lang-card">
-              <div class="lang-header">
-                <span class="lang-name">Arabic</span>
-                <span class="lang-level">Native</span>
-              </div>
-              <div class="lang-bar"><div class="lang-progress" style="width: 100%"></div></div>
+              <span class="lang-name">Arabic</span>
+              <span class="lang-level">Native</span>
             </div>
           </div>
           <div class="col-md-6">
             <div class="lang-card">
-              <div class="lang-header">
-                <span class="lang-name">English</span>
-                <span class="lang-level">Professional Working</span>
-              </div>
-              <div class="lang-bar"><div class="lang-progress" style="width: 80%"></div></div>
+              <span class="lang-name">English</span>
+              <span class="lang-level">Professional working proficiency</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- CERTIFICATIONS                              -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="section-padding" id="certifications">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-label"><span class="label-line"></span> Certifications</span>
+        <h2 class="section-title">Cisco Certifications</h2>
+        <p class="section-subtitle">Current credentials, each verifiable through Cisco's certificate verification tool.</p>
+      </div>
+
+      <!-- Featured — CCNP Enterprise -->
+      <div class="cert-featured mt-4" data-aos="fade-up">
+        <a class="cert-featured-preview" href="assets/certs/cisco-ccnp-enterprise.pdf" target="_blank" rel="noopener noreferrer"
+           aria-label="Open the CCNP Enterprise certificate (PDF)">
+          <img src="assets/certs/cisco-ccnp-enterprise.jpg"
+               alt="Cisco Certified Network Professional Enterprise certificate awarded to Mohammad Abusaa, certified April 6, 2026"
+               loading="lazy" width="1000" height="773">
+        </a>
+        <div class="cert-featured-body">
+          <span class="cert-level"><i class="bi bi-patch-check-fill" aria-hidden="true"></i> Professional Level · Active</span>
+          <h3>CCNP Enterprise</h3>
+          <p class="cert-fullname">Cisco Certified Network Professional Enterprise</p>
+          <dl class="cert-meta">
+            <div><dt>Certified</dt><dd>April 6, 2026</dd></div>
+            <div><dt>Valid through</dt><dd>April 6, 2029</dd></div>
+            <div><dt>Cisco ID</dt><dd>CSCO14166507</dd></div>
+          </dl>
+          <p class="cert-note">Earned by passing ENCOR 350-401 (core) and ENSDWI 300-415 (SD-WAN concentration).</p>
+          <div class="cert-actions">
+            <a href="assets/certs/cisco-ccnp-enterprise.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-accent btn-sm">
+              <i class="bi bi-file-earmark-pdf me-1" aria-hidden="true"></i> View certificate
+            </a>
+            <a href="https://www.cisco.com/go/verifycertificate" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light btn-sm">
+              <i class="bi bi-shield-check me-1" aria-hidden="true"></i> Verify with Cisco
+            </a>
+          </div>
+          <span class="cert-verify">Verification No. 19bcc3627c384a9685488b668f8dec1a</span>
+        </div>
+      </div>
+
+      <div class="row g-4 mt-1" data-aos="fade-up" data-aos-delay="100">
+        <div class="col-lg-6">
+          <div class="cert-card cert-card-doc">
+            <a class="cert-thumb" href="assets/certs/cisco-specialist-enterprise-core.pdf" target="_blank" rel="noopener noreferrer"
+               aria-label="Open the Cisco Certified Specialist – Enterprise Core certificate (PDF)">
+              <img src="assets/certs/cisco-specialist-enterprise-core.jpg" alt="" loading="lazy" width="1000" height="773">
+            </a>
+            <div>
+              <h4>Cisco Certified Specialist – Enterprise Core</h4>
+              <p>ENCOR 350-401 · Certified Mar 28, 2026 · Valid through Apr 6, 2029</p>
+              <span class="cert-verify">Verification No. 8a88518b184148e9a5bd16b413c1bbc6</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="cert-card cert-card-doc">
+            <a class="cert-thumb" href="assets/certs/cisco-specialist-enterprise-sdwan.pdf" target="_blank" rel="noopener noreferrer"
+               aria-label="Open the Cisco Certified Specialist – Enterprise SD-WAN certificate (PDF)">
+              <img src="assets/certs/cisco-specialist-enterprise-sdwan.jpg" alt="" loading="lazy" width="1000" height="773">
+            </a>
+            <div>
+              <h4>Cisco Certified Specialist – Enterprise SD-WAN</h4>
+              <p>ENSDWI 300-415 · Certified Apr 6, 2026 · Valid through Apr 6, 2029</p>
+              <span class="cert-verify">Verification No. 263beae61d0c45c5b21c07b831f82577</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4 mt-1" data-aos="fade-up" data-aos-delay="150">
+        <div class="col-lg-6">
+          <div class="cert-card cert-card-past">
+            <div class="cert-icon cert-icon-past"><i class="bi bi-patch-check" aria-hidden="true"></i></div>
+            <div>
+              <h4>CCNA</h4>
+              <p>Cisco Certified Network Associate · Jan 2023 – Jan 2026 · Superseded by CCNP Enterprise</p>
+            </div>
+            <span class="cert-status-badge cert-status-past">Superseded</span>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="cert-card cert-card-ccie">
+            <div class="cert-icon cert-icon-ccie"><i class="bi bi-rocket-takeoff-fill" aria-hidden="true"></i></div>
+            <div>
+              <h4>CCIE Enterprise Infrastructure</h4>
+              <p>Cisco Certified Internetwork Expert · Currently Preparing</p>
+            </div>
+            <span class="cert-status-badge">In Progress</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SKILLS                                      -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="section-padding section-alt" id="skills">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-label"><span class="label-line"></span> Skills</span>
+        <h2 class="section-title">Technical Expertise</h2>
+        <p class="section-subtitle">The technologies I work with in day-to-day TAC casework.</p>
+      </div>
+
+      <div class="row g-4 mt-2">
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="skill-card">
+            <div class="skill-icon"><i class="bi bi-diagram-3" aria-hidden="true"></i></div>
+            <h3>Enterprise Switching</h3>
+            <p>Advanced L2/L3 switching, stack troubleshooting, and platform diagnostics across the full Catalyst portfolio.</p>
+            <div class="skill-tags">
+              <span>VLANs</span><span>STP/RSTP/MST</span><span>EtherChannel</span>
+              <span>StackWise</span><span>SSO/NSF</span><span>REP</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="skill-card">
+            <div class="skill-icon"><i class="bi bi-globe2" aria-hidden="true"></i></div>
+            <h3>Cisco SD-WAN</h3>
+            <p>Full SD-WAN lifecycle — controller deployments, edge onboarding, tunnel debugging, and overlay management.</p>
+            <div class="skill-tags">
+              <span>vManage</span><span>vBond</span><span>vSmart</span>
+              <span>OMP</span><span>IPsec/BFD</span><span>QoS</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="skill-card">
+            <div class="skill-icon"><i class="bi bi-signpost-split" aria-hidden="true"></i></div>
+            <h3>Routing</h3>
+            <p>Solid routing fundamentals with practical experience in OSPF, BGP, and first-hop redundancy protocols.</p>
+            <div class="skill-tags">
+              <span>OSPF</span><span>BGP</span><span>HSRP/VRRP/GLBP</span>
+              <span>VRF</span><span>GRE</span><span>CEF</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="skill-card">
+            <div class="skill-icon"><i class="bi bi-cpu" aria-hidden="true"></i></div>
+            <h3>Platforms & IOS-XE</h3>
+            <p>Deep platform knowledge including upgrades (ISSU/eFSU), ROMMON recovery, and install mode operations.</p>
+            <div class="skill-tags">
+              <span>Catalyst 2K–9K</span><span>IOS-XE</span>
+              <span>ISSU/eFSU</span><span>ROMMON</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+          <div class="skill-card">
+            <div class="skill-icon"><i class="bi bi-search" aria-hidden="true"></i></div>
+            <h3>Diagnostics & Capture</h3>
+            <p>Advanced troubleshooting using packet captures, CPU/memory analysis, and traffic monitoring tools.</p>
+            <div class="skill-tags">
+              <span>Wireshark</span><span>SPAN/ERSPAN</span><span>EPC</span>
+              <span>NetFlow</span><span>High-CPU</span><span>TCAM</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+          <div class="skill-card">
+            <div class="skill-icon"><i class="bi bi-shield-check" aria-hidden="true"></i></div>
+            <h3>Network Services</h3>
+            <p>Experience with DHCP, multicast, PoE, device automation, and security features across enterprise environments.</p>
+            <div class="skill-tags">
+              <span>DHCP Snooping</span><span>IGMP</span><span>PoE</span>
+              <span>EEM</span><span>KRON</span><span>Syslog</span>
             </div>
           </div>
         </div>
@@ -663,8 +557,8 @@
     <div class="container">
       <div class="section-header" data-aos="fade-up">
         <span class="section-label"><span class="label-line"></span> Projects</span>
-        <h2 class="section-title">What I've Built</h2>
-        <p class="section-subtitle">Hands-on implementations that go beyond theory into real-world network architecture.</p>
+        <h2 class="section-title">Selected Projects</h2>
+        <p class="section-subtitle">A university capstone, lab builds, and competition work.</p>
       </div>
 
       <div class="row g-4 mt-2">
@@ -672,15 +566,15 @@
         <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
           <div class="project-card project-featured">
             <div class="project-badge">University Project</div>
-            <div class="project-icon"><i class="bi bi-hdd-network"></i></div>
+            <div class="project-icon"><i class="bi bi-hdd-network" aria-hidden="true"></i></div>
             <h3>Cisco SD-WAN Full Implementation</h3>
             <p>Designed and deployed a complete Cisco SD-WAN fabric from scratch as part of my university capstone project — simulating a real enterprise multi-site deployment.</p>
             <ul class="project-details">
-              <li><i class="bi bi-check-circle"></i> Built full controller infrastructure — vManage, vSmart, vBond — and integrated edge devices into an existing enterprise network</li>
-              <li><i class="bi bi-check-circle"></i> Configured QoS, security, and application-aware routing policies across the SD-WAN overlay to ensure optimal traffic handling per-site</li>
-              <li><i class="bi bi-check-circle"></i> Established IPsec tunnels with BFD monitoring between all sites for encrypted, resilient WAN connectivity</li>
-              <li><i class="bi bi-check-circle"></i> Implemented OMP route distribution and control policies for intelligent path selection and failover</li>
-              <li><i class="bi bi-check-circle"></i> Delivered training sessions for team members covering SD-WAN operations, day-to-day management, and troubleshooting procedures</li>
+              <li><i class="bi bi-check-circle" aria-hidden="true"></i> Built full controller infrastructure — vManage, vSmart, vBond — and integrated edge devices into an existing enterprise network</li>
+              <li><i class="bi bi-check-circle" aria-hidden="true"></i> Configured QoS, security, and application-aware routing policies across the SD-WAN overlay to ensure optimal traffic handling per-site</li>
+              <li><i class="bi bi-check-circle" aria-hidden="true"></i> Established IPsec tunnels with BFD monitoring between all sites for encrypted, resilient WAN connectivity</li>
+              <li><i class="bi bi-check-circle" aria-hidden="true"></i> Implemented OMP route distribution and control policies for intelligent path selection and failover</li>
+              <li><i class="bi bi-check-circle" aria-hidden="true"></i> Delivered training sessions for team members covering SD-WAN operations, day-to-day management, and troubleshooting procedures</li>
             </ul>
             <div class="project-tech">
               <span>vManage</span><span>vSmart</span><span>vBond</span><span>cEdge</span>
@@ -690,18 +584,18 @@
           </div>
         </div>
 
-        <!-- Network Automation Project -->
+        <!-- Campus Design -->
         <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
           <div class="project-card">
             <div class="project-badge">Lab Project</div>
-            <div class="project-icon"><i class="bi bi-diagram-3"></i></div>
+            <div class="project-icon"><i class="bi bi-diagram-3" aria-hidden="true"></i></div>
             <h3>Enterprise Campus Network Design</h3>
             <p>Designed and implemented a multi-layer campus network architecture using Cisco Catalyst switches with full redundancy and high availability.</p>
             <ul class="project-details">
-              <li><i class="bi bi-check-circle"></i> Built a 3-tier campus architecture — access, distribution, and core layers using Catalyst switches</li>
-              <li><i class="bi bi-check-circle"></i> Configured HSRP/VRRP for gateway redundancy and EtherChannel for link aggregation</li>
-              <li><i class="bi bi-check-circle"></i> Implemented OSPF for dynamic routing and STP tuning for loop-free L2 topology</li>
-              <li><i class="bi bi-check-circle"></i> Deployed VLANs, inter-VLAN routing, DHCP services, and port security across the network</li>
+              <li><i class="bi bi-check-circle" aria-hidden="true"></i> Built a 3-tier campus architecture — access, distribution, and core layers using Catalyst switches</li>
+              <li><i class="bi bi-check-circle" aria-hidden="true"></i> Configured HSRP/VRRP for gateway redundancy and EtherChannel for link aggregation</li>
+              <li><i class="bi bi-check-circle" aria-hidden="true"></i> Implemented OSPF for dynamic routing and STP tuning for loop-free L2 topology</li>
+              <li><i class="bi bi-check-circle" aria-hidden="true"></i> Deployed VLANs, inter-VLAN routing, DHCP services, and port security across the network</li>
             </ul>
             <div class="project-tech">
               <span>Catalyst 9K</span><span>OSPF</span><span>HSRP</span><span>EtherChannel</span>
@@ -714,13 +608,13 @@
         <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
           <div class="project-card">
             <div class="project-badge">Competition</div>
-            <div class="project-icon"><i class="bi bi-trophy"></i></div>
+            <div class="project-icon"><i class="bi bi-trophy" aria-hidden="true"></i></div>
             <h3>Huawei ICT — Network Track Solution</h3>
             <p>Led Team Jordan to 1st place at the World Final by designing and deploying a complete enterprise network under competition constraints.</p>
             <ul class="project-details">
-              <li><i class="bi bi-check-circle"></i> Designed and implemented multi-vendor enterprise routing with OSPF, BGP, and VPN overlays</li>
-              <li><i class="bi bi-check-circle"></i> Configured Huawei switches and routers under strict time pressure with zero error tolerance</li>
-              <li><i class="bi bi-check-circle"></i> Competed against 39 countries — ranked #1 globally in the Network Track</li>
+              <li><i class="bi bi-check-circle" aria-hidden="true"></i> Designed and implemented multi-vendor enterprise routing with OSPF, BGP, and VPN overlays</li>
+              <li><i class="bi bi-check-circle" aria-hidden="true"></i> Configured Huawei switches and routers under strict time pressure with zero error tolerance</li>
+              <li><i class="bi bi-check-circle" aria-hidden="true"></i> Competed against 39 countries — ranked #1 globally in the Network Track</li>
             </ul>
             <div class="project-tech">
               <span>Huawei NE</span><span>OSPF</span><span>BGP</span><span>MPLS</span>
@@ -733,17 +627,111 @@
         <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
           <div class="project-card">
             <div class="project-badge">Self-Study</div>
-            <div class="project-icon"><i class="bi bi-pc-display"></i></div>
+            <div class="project-icon"><i class="bi bi-pc-display" aria-hidden="true"></i></div>
             <h3>EVE-NG Home Lab Environment</h3>
             <p>Set up a fully functional network lab environment for CCNP study and TAC case reproduction using EVE-NG on personal hardware.</p>
             <ul class="project-details">
-              <li><i class="bi bi-check-circle"></i> Configured EVE-NG with Cisco vIOS, IOS-XE, and Ubuntu images for multi-platform testing</li>
-              <li><i class="bi bi-check-circle"></i> Reproduce real TAC customer scenarios in lab before recommending solutions</li>
-              <li><i class="bi bi-check-circle"></i> Practice ISSU/eFSU upgrades, StackWise behavior, and failure scenarios safely</li>
+              <li><i class="bi bi-check-circle" aria-hidden="true"></i> Configured EVE-NG with Cisco vIOS, IOS-XE, and Ubuntu images for multi-platform testing</li>
+              <li><i class="bi bi-check-circle" aria-hidden="true"></i> Reproduce real TAC customer scenarios in lab before recommending solutions</li>
+              <li><i class="bi bi-check-circle" aria-hidden="true"></i> Practice ISSU/eFSU upgrades, StackWise behavior, and failure scenarios safely</li>
             </ul>
             <div class="project-tech">
               <span>EVE-NG</span><span>vIOS</span><span>IOS-XE</span><span>Ubuntu</span>
               <span>Wireshark</span><span>CCNP Labs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- AWARDS & RECOGNITION                        -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="section-padding section-alt" id="awards">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-label"><span class="label-line"></span> Awards & Achievements</span>
+        <h2 class="section-title">Recognition & Awards</h2>
+        <p class="section-subtitle">Huawei ICT Competition results, 2023–2025, and recognition at work.</p>
+      </div>
+
+      <div class="awards-subhead" data-aos="fade-up">
+        <h3>Huawei ICT Competition</h3>
+      </div>
+
+      <div class="row g-4 mt-2">
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="award-card">
+            <div class="award-icon award-gold" aria-hidden="true"><i class="bi bi-trophy-fill"></i></div>
+            <h4>1st Prize — World Final</h4>
+            <p>Huawei ICT Competition 2025</p>
+            <span class="award-badge">Global Champion</span>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="award-card">
+            <div class="award-icon award-gold" aria-hidden="true"><i class="bi bi-trophy-fill"></i></div>
+            <h4>Grand Prize — ME&CA Final</h4>
+            <p>Middle East & Central Asia 2024</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="award-card">
+            <div class="award-icon award-gold" aria-hidden="true"><i class="bi bi-trophy-fill"></i></div>
+            <h4>Grand Prize — Jordan Final</h4>
+            <p>Jordan National 2024</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="award-card">
+            <div class="award-icon award-silver" aria-hidden="true"><i class="bi bi-trophy-fill"></i></div>
+            <h4>2nd Prize — World Final</h4>
+            <p>Huawei ICT Competition 2024</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+          <div class="award-card">
+            <div class="award-icon award-bronze" aria-hidden="true"><i class="bi bi-trophy-fill"></i></div>
+            <h4>3rd Prize — ME&CA Final</h4>
+            <p>Middle East & Central Asia 2023</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+          <div class="award-card">
+            <div class="award-icon award-gold" aria-hidden="true"><i class="bi bi-trophy-fill"></i></div>
+            <h4>1st Prize — Jordan Final</h4>
+            <p>Jordan National 2023</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="awards-subhead awards-subhead-spaced" data-aos="fade-up">
+        <h3>Workplace Recognition</h3>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+        <div class="col-lg-11" data-aos="fade-up" data-aos-delay="100">
+          <div class="recognition-card">
+            <a class="recognition-media" href="assets/img/estarta-certificate-q4y26.jpg" target="_blank" rel="noopener noreferrer"
+               aria-label="View full-size Estarta Certificate of Appreciation">
+              <img src="assets/img/estarta-certificate-q4y26.jpg"
+                   alt="Estarta Certificate of Appreciation awarded to Mohammad Abusaa, TAC-ENT-SDWAN-SHIFT3, Q4Y26"
+                   loading="lazy" width="800" height="597">
+            </a>
+            <div class="recognition-body">
+              <span class="recognition-tag">Estarta Solutions · Q4Y26</span>
+              <h4>Certificate of Appreciation</h4>
+              <p class="recognition-team">TAC-ENT-SDWAN-SHIFT3</p>
+              <p class="recognition-quote">“Thank you for being a great ambassador of Estarta's excellence standards.”</p>
+              <span class="recognition-signer">Presented by Leith Masri, Chairman</span>
+
+              <figure class="recognition-photo">
+                <img src="assets/img/estarta-recognition-ceremony.jpg"
+                     alt="Mohammad Abusaa with colleagues at the Estarta award presentation"
+                     loading="lazy" width="160" height="106">
+                <figcaption>Award presentation at Estarta</figcaption>
+              </figure>
             </div>
           </div>
         </div>
@@ -758,8 +746,8 @@
     <div class="container">
       <div class="section-header" data-aos="fade-up">
         <span class="section-label"><span class="label-line"></span> Get in Touch</span>
-        <h2 class="section-title">Let's Connect</h2>
-        <p class="section-subtitle">Open to new opportunities, collaborations, and interesting conversations.</p>
+        <h2 class="section-title">Contact</h2>
+        <p class="section-subtitle">Open to roles, collaborations, and technical conversations.</p>
       </div>
 
       <div class="row g-5 mt-2">
@@ -768,11 +756,11 @@
           <p class="contact-text">Whether you have a project in mind, a technical challenge, or a career opportunity — I'd love to hear from you.</p>
           <div class="contact-links">
             <a href="mailto:mohammadabusaa66@gmail.com" class="contact-link-item">
-              <div class="contact-icon"><i class="bi bi-envelope"></i></div>
+              <div class="contact-icon"><i class="bi bi-envelope" aria-hidden="true"></i></div>
               <span>mohammadabusaa66@gmail.com</span>
             </a>
             <a href="tel:+962788231836" class="contact-link-item">
-              <div class="contact-icon"><i class="bi bi-telephone"></i></div>
+              <div class="contact-icon"><i class="bi bi-telephone" aria-hidden="true"></i></div>
               <span>+962 788 231 836</span>
             </a>
             <a href="https://www.linkedin.com/in/mohammad-abusaa-94b093305/" target="_blank" rel="noopener noreferrer" class="contact-link-item">
@@ -780,7 +768,7 @@
               <span>linkedin.com/in/mohammad-abusaa-94b093305</span>
             </a>
             <div class="contact-link-item">
-              <div class="contact-icon"><i class="bi bi-geo-alt"></i></div>
+              <div class="contact-icon"><i class="bi bi-geo-alt" aria-hidden="true"></i></div>
               <span>Amman, Jordan</span>
             </div>
           </div>
@@ -821,6 +809,8 @@
     </div>
   </section>
 
+  </main>
+
   <!-- ═══════════════════════════════════════════ -->
   <!-- FOOTER                                      -->
   <!-- ═══════════════════════════════════════════ -->
@@ -837,7 +827,7 @@
 
   <!-- Back to Top -->
   <button class="btn-back-top" id="backToTop" type="button" title="Back to top" aria-label="Back to top">
-    <i class="bi bi-chevron-up"></i>
+    <i class="bi bi-chevron-up" aria-hidden="true"></i>
   </button>
 
   <!-- ═══════════════════════════════════════════ -->
