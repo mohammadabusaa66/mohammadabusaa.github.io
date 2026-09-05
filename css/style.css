@@ -534,6 +534,131 @@ body::before {
   transform: rotate(45deg);
 }
 
+/* Awards sub-heading */
+.awards-subhead {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.awards-subhead::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--gold-border);
+}
+
+.awards-subhead h3 {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0;
+  white-space: nowrap;
+}
+
+.awards-subhead-spaced { margin-top: 4rem; margin-bottom: 1.75rem; }
+
+/* Workplace recognition card */
+.recognition-card {
+  display: flex;
+  align-items: stretch;
+  gap: 2rem;
+  padding: 1.75rem;
+  background: var(--card-bg);
+  border: 1px solid var(--gold-border);
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+
+.recognition-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 50px rgba(245, 158, 11, 0.1);
+  border-color: var(--gold);
+}
+
+.recognition-media {
+  flex: 0 0 46%;
+  display: block;
+  border-radius: calc(var(--radius) - 6px);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  background: #fff;
+  align-self: flex-start;
+}
+
+.recognition-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: var(--transition);
+}
+
+.recognition-media:hover img { transform: scale(1.03); }
+
+.recognition-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.recognition-tag {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: var(--gold-soft);
+  border: 1px solid var(--gold-border);
+  border-radius: 100px;
+  padding: 0.3rem 0.85rem;
+  margin-bottom: 0.9rem;
+}
+
+.recognition-body h4 {
+  font-family: var(--font-body);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-100);
+  margin-bottom: 0.3rem;
+}
+
+.recognition-team {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: var(--accent-light);
+  margin-bottom: 1rem;
+}
+
+.recognition-quote {
+  font-size: 0.95rem;
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--text-200);
+  border-left: 2px solid var(--gold-border);
+  padding-left: 1rem;
+  margin-bottom: 1.1rem;
+}
+
+.recognition-signer {
+  font-size: 0.78rem;
+  color: var(--text-400);
+}
+
+@media (max-width: 767.98px) {
+  .recognition-card { flex-direction: column; gap: 1.5rem; padding: 1.25rem; }
+  .recognition-media { flex: 1 1 auto; }
+  .recognition-body h4 { font-size: 1.15rem; }
+}
+
 /* ══════════════════════════════════════════════════════
    SKILLS
    ══════════════════════════════════════════════════════ */
