@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Mohammad Abusaa — CV</title>
+<style>
+  @page { size: A4; margin: 11mm 13mm 10mm 13mm; }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+
+  body {
+    font-family: "Calibri", "Carlito", "Segoe UI", Arial, sans-serif;
+    font-size: 9.5pt;
+    line-height: 1.29;
+    color: #1a1a1a;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ---------- Header ---------- */
+  .name {
+    font-size: 20pt;
+    font-weight: 700;
+    letter-spacing: 2.2px;
+    color: #0b3a5b;
+    margin: 0;
+    text-transform: uppercase;
+  }
+  .tagline {
+    font-size: 10.2pt;
+    color: #2c6b96;
+    font-weight: 600;
+    margin: 1px 0 4px;
+    letter-spacing: 0.2px;
+  }
+  .contact {
+    font-size: 9pt;
+    color: #333;
+    margin: 0;
+  }
+  .contact a { color: #1a5f8a; text-decoration: none; }
+  .contact .sep { color: #9bb3c4; padding: 0 5px; }
+  .rule {
+    border: 0;
+    border-top: 2px solid #0b3a5b;
+    margin: 5px 0 0;
+  }
+
+  /* ---------- Sections ---------- */
+  h2.sec {
+    font-size: 9.9pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #0b3a5b;
+    margin: 9px 0 3px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #c2d4e0;
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  p.summary { margin: 0; text-align: justify; }
+
+  /* ---------- Experience ---------- */
+  .job { margin-top: 6px; }
+  .job:first-of-type { margin-top: 3px; }
+  .job-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+  }
+  .job-title { font-size: 9.7pt; font-weight: 700; color: #14243a; }
+  .job-date {
+    font-size: 8.8pt;
+    color: #4a4a4a;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .job-org {
+    font-size: 9.2pt;
+    color: #2c6b96;
+    font-style: italic;
+    margin: 0 0 2px;
+  }
+  .job-org .mode { color: #777; font-style: normal; font-size: 8.4pt; }
+
+  ul { margin: 0; padding-left: 14px; }
+  li { margin-bottom: 1px; }
+  li::marker { color: #2c6b96; }
+
+  /* ---------- Two-column blocks ---------- */
+  .grid2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px 22px;
+  }
+
+  .skill-row { margin-bottom: 3px; }
+  .skill-label {
+    font-weight: 700;
+    color: #14243a;
+  }
+
+  .cert { margin-bottom: 3px; padding-left: 11px; text-indent: -11px; }
+  .cert::before { content: "▪"; color: #2c6b96; padding-right: 5px; }
+  .cert b { color: #14243a; }
+  .cert .meta { color: #555; font-size: 8.9pt; }
+  .inprog { color: #a8681c; font-weight: 600; font-size: 8.6pt; }
+
+  /* ---------- Projects ---------- */
+  .proj { margin-top: 5px; }
+  .proj:first-of-type { margin-top: 3px; }
+  .proj-title { font-weight: 700; color: #14243a; font-size: 9.5pt; }
+  .proj-kind {
+    font-size: 8.2pt;
+    color: #2c6b96;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    padding-left: 6px;
+  }
+
+  /* ---------- Awards ---------- */
+  .award { margin-bottom: 3px; padding-left: 11px; text-indent: -11px; }
+  .award::before { content: "▪"; color: #2c6b96; padding-right: 5px; }
+  .award b { color: #14243a; }
+
+  .edu-line { display: flex; justify-content: space-between; align-items: baseline; }
+  .edu-deg { font-weight: 700; color: #14243a; }
+  .edu-sub { font-style: italic; color: #2c6b96; font-size: 9.2pt; }
+
+  .avoid-break { break-inside: avoid; page-break-inside: avoid; }
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="name">Mohammad Abusaa</div>
+    <div class="tagline">Cisco TAC Engineer &nbsp;•&nbsp; Enterprise Switching &amp; SD-WAN</div>
+    <div class="contact">
+      Amman, Jordan <span class="sep">|</span>
+      +962 788 231 836 <span class="sep">|</span>
+      <a href="mailto:mohammadabusaa66@gmail.com">mohammadabusaa66@gmail.com</a> <span class="sep">|</span>
+      <a href="https://linkedin.com/in/mohammad-abusaa">linkedin.com/in/mohammad-abusaa</a> <span class="sep">|</span>
+      <a href="https://mohammadabusaa.com">mohammadabusaa.com</a>
+    </div>
+    <hr class="rule">
+  </header>
+
+  <h2 class="sec">Summary</h2>
+  <p class="summary">
+    Cisco TAC Engineer with 2+ years in enterprise network support, currently on the SD-WAN team handling vManage
+    issues, controller upgrades, IPsec/BFD tunnel debugging, OMP routing problems, and policy misconfigurations for
+    global enterprise customers. Built a deep switching foundation across Catalyst 2K–9K platforms — STP convergence,
+    StackWise/VSS failures, IOS-XE upgrades via ISSU/eFSU, High-CPU and TCAM diagnostics — before moving to SD-WAN.
+    Earlier experience in service provider routing at Huawei and enterprise switching at Seven Gate LLC. Huawei ICT
+    Competition World Champion 2025, representing Jordan against 39 countries. CCNP Enterprise certified (ENCOR,
+    ENSDWI) and currently preparing for the CCIE Enterprise Infrastructure.
+  </p>
+
+  <h2 class="sec">Experience</h2>
+
+  <div class="job avoid-break">
+    <div class="job-head">
+      <span class="job-title">TAC Engineer (Junior) — SD-WAN Team</span>
+      <span class="job-date">Mar 2026 – Present</span>
+    </div>
+    <div class="job-org">Estarta Solutions · Cisco Systems, Amman, Jordan <span class="mode">(Remote)</span></div>
+    <ul>
+      <li>Troubleshoot Cisco SD-WAN issues for global enterprise customers — vManage cluster failures, controller upgrades, and edge onboarding failures.</li>
+      <li>Debug IPsec and BFD tunnel issues, OMP routing problems, and control/data policy misconfigurations across customer overlays.</li>
+      <li>Collaborate with senior engineers and the Cisco BU to identify, document, and escalate software defects on cases needing deeper investigation.</li>
+    </ul>
+  </div>
+
+  <div class="job avoid-break">
+    <div class="job-head">
+      <span class="job-title">TAC Engineer (Junior) — Switching Team</span>
+      <span class="job-date">Jan 2026 – Feb 2026</span>
+    </div>
+    <div class="job-org">Estarta Solutions · Cisco Systems, Amman, Jordan <span class="mode">(On-site)</span></div>
+    <ul>
+      <li>Handled switching cases on Catalyst 2K–9K platforms, from routine connectivity issues to critical production outages requiring fast resolution.</li>
+      <li>Reproduced customer issues in lab before recommending fixes — StackWise stack failures, SSO/NSF behavior, and STP convergence problems.</li>
+      <li>Performed traffic and performance analysis using SPAN, ERSPAN, EPC, and Wireshark, including High-CPU spikes, TCAM exhaustion, and memory diagnostics.</li>
+      <li>Carried out IOS-XE upgrades using ISSU and eFSU on Catalyst 9K/6K/4K switches, following proper process to avoid unnecessary customer downtime.</li>
+    </ul>
+  </div>
+
+  <div class="job avoid-break">
+    <div class="job-head">
+      <span class="job-title">TAC Engineer (Associate) — Switching Team</span>
+      <span class="job-date">Apr 2025 – Dec 2025</span>
+    </div>
+    <div class="job-org">Estarta Solutions · Cisco Systems, Amman, Jordan <span class="mode">(On-site)</span></div>
+    <ul>
+      <li>Managed real customer cases on Catalyst platforms with increasing independence, owning troubleshooting and customer communication end to end.</li>
+      <li>Applied STP, EtherChannel, StackWise, and FHRP knowledge daily across a steadily broader range of issues.</li>
+    </ul>
+  </div>
+
+  <div class="job avoid-break">
+    <div class="job-head">
+      <span class="job-title">TAC Engineer (Trainee) — Switching Team</span>
+      <span class="job-date">Jan 2025 – Mar 2025</span>
+    </div>
+    <div class="job-org">Estarta Solutions · Cisco Systems, Amman, Jordan <span class="mode">(On-site)</span></div>
+    <ul>
+      <li>Completed structured training on Catalyst L2/L3 technologies — VLANs, STP/RSTP/MST, EtherChannel, and FHRP.</li>
+      <li>Built hands-on troubleshooting skills through lab simulations — ROMMON recovery, password reset, and IOS image repair.</li>
+      <li>Learned to communicate clearly with customers during uncertain technical situations, setting expectations and keeping them updated.</li>
+    </ul>
+  </div>
+
+  <div class="job avoid-break">
+    <div class="job-head">
+      <span class="job-title">IP Networking Engineer — Routing Team</span>
+      <span class="job-date">Aug 2024 – Oct 2024</span>
+    </div>
+    <div class="job-org">Huawei, Amman, Jordan</div>
+    <ul>
+      <li>Tuned OSPF and BGP configurations on Huawei platforms to improve stability and reduce convergence time for enterprise customers.</li>
+      <li>Configured redundancy mechanisms and verified routing paths to confirm traffic would still flow correctly on link or device failure.</li>
+      <li>Resolved Layer 3 routing issues in live customer environments, isolating root cause quickly to minimize production impact.</li>
+    </ul>
+  </div>
+
+  <div class="job avoid-break">
+    <div class="job-head">
+      <span class="job-title">IP Networking Trainee — Routing Team</span>
+      <span class="job-date">May 2024 – Jul 2024</span>
+    </div>
+    <div class="job-org">Huawei, Amman, Jordan</div>
+    <ul>
+      <li>Configured and troubleshot Huawei routers across lab and production setups, focusing on routing tables and path selection.</li>
+      <li>Supported the engineering team in reviewing and validating enterprise routing designs, catching potential issues before production.</li>
+    </ul>
+  </div>
+
+  <div class="job avoid-break">
+    <div class="job-head">
+      <span class="job-title">Enterprise Switching Trainee — Switching Team</span>
+      <span class="job-date">Sep 2023 – Jan 2024</span>
+    </div>
+    <div class="job-org">Seven Gate LLC, Amman, Jordan</div>
+    <ul>
+      <li>Configured VLANs, STP, Port Security, and EtherChannel on Cisco and Ruckus switches to support enterprise network requirements.</li>
+      <li>Troubleshot connectivity issues and kept the switching environment stable, learning to narrow down problems systematically.</li>
+    </ul>
+  </div>
+
+  <div class="avoid-break">
+  <h2 class="sec">Certifications</h2>
+  <div class="cert"><b>CCNA</b> — Cisco Certified Network Associate <span class="meta">· Issued Jan 2023 · ID: CSCO14166507</span></div>
+  <div class="cert"><b>CCNP Enterprise — ENCOR (350-401)</b> — Cisco Certified Specialist, Enterprise Core <span class="meta">· Issued Mar 2026 · Valid until 2029</span></div>
+  <div class="cert"><b>CCNP Enterprise — ENSDWI (300-415)</b> — Cisco Certified Specialist, Enterprise SD-WAN <span class="meta">· Issued Apr 2026 · Valid until 2029</span></div>
+  <div class="cert"><b>CCIE Enterprise Infrastructure</b> — Cisco Certified Internetwork Expert <span class="inprog">· IN PROGRESS</span></div>
+  </div>
+
+  <h2 class="sec">Technical Skills</h2>
+  <div class="skill-row"><span class="skill-label">Enterprise Switching:</span>
+    VLANs, Trunking, Port Security, MAC Learning, ARP/ND, STP/RSTP/MST, EtherChannel (LACP/PAgP), REP, StackWise, SSO/NSF</div>
+  <div class="skill-row"><span class="skill-label">Routing:</span>
+    OSPF, BGP, Static Routing, FHRP (HSRP/VRRP/GLBP), GRE Tunnels, BFD, VRF, CEF Forwarding</div>
+  <div class="skill-row"><span class="skill-label">Cisco SD-WAN (Viptela):</span>
+    vManage / vSmart / vBond configuration &amp; troubleshooting, vEdge &amp; cEdge onboarding, IPsec/BFD tunnel debugging, OMP, control &amp; data policies, QoS and security policy management, controller upgrades</div>
+  <div class="skill-row"><span class="skill-label">Platforms &amp; IOS-XE:</span>
+    Catalyst 2K/3K/4K/6K/9K, IOS-XE (BIN/TAR, Install Mode, ISSU/eFSU), ROMMON recovery</div>
+  <div class="skill-row"><span class="skill-label">Diagnostics &amp; Capture:</span>
+    Wireshark, SPAN/RSPAN/ERSPAN, EPC, MPA, NetFlow, Syslog, High-CPU troubleshooting, TCAM exhaustion analysis, memory diagnostics</div>
+  <div class="skill-row"><span class="skill-label">Network Services &amp; Automation:</span>
+    DHCP (Snooping/Relay), IGMP Multicast, mDNS, PoE, EEM Scripting, KRON</div>
+
+  <h2 class="sec">Projects</h2>
+
+  <div class="proj avoid-break">
+    <div><span class="proj-title">Cisco SD-WAN Full Implementation</span><span class="proj-kind">University Capstone</span></div>
+    <ul>
+      <li>Designed and deployed a complete Cisco SD-WAN fabric from scratch, simulating a real enterprise multi-site deployment.</li>
+      <li>Built the full controller infrastructure — vManage, vSmart, vBond — and integrated edge devices into an existing enterprise network.</li>
+      <li>Configured QoS, security, and application-aware routing policies across the overlay for optimal per-site traffic handling.</li>
+      <li>Established IPsec tunnels with BFD monitoring between all sites and implemented OMP route distribution with control policies for intelligent path selection and failover.</li>
+      <li>Delivered training sessions covering SD-WAN operations, day-to-day management, and troubleshooting procedures.</li>
+    </ul>
+  </div>
+
+  <div class="proj avoid-break">
+    <div><span class="proj-title">Enterprise Campus Network Design</span><span class="proj-kind">Lab Project</span></div>
+    <ul>
+      <li>Built a 3-tier campus architecture — access, distribution, and core — using Cisco Catalyst switches with full redundancy.</li>
+      <li>Configured HSRP/VRRP for gateway redundancy, EtherChannel for link aggregation, and OSPF for dynamic routing.</li>
+      <li>Deployed VLANs, inter-VLAN routing, DHCP services, port security, and STP tuning for a loop-free L2 topology.</li>
+    </ul>
+  </div>
+
+  <div class="proj avoid-break">
+    <div><span class="proj-title">Huawei ICT — Network Track Solution</span><span class="proj-kind">Competition</span></div>
+    <ul>
+      <li>Led Team Jordan to 1st place at the World Final, designing and deploying a complete enterprise network under competition constraints.</li>
+      <li>Implemented multi-vendor enterprise routing with OSPF, BGP, MPLS, and VPN overlays on Huawei switches and routers.</li>
+      <li>Competed against 39 countries under strict time pressure with zero error tolerance — ranked #1 globally in the Network Track.</li>
+    </ul>
+  </div>
+
+  <div class="proj avoid-break">
+    <div><span class="proj-title">EVE-NG Home Lab Environment</span><span class="proj-kind">Self-Study</span></div>
+    <ul>
+      <li>Built a full network lab on personal hardware with Cisco vIOS, IOS-XE, and Ubuntu images for multi-platform testing.</li>
+      <li>Reproduce real TAC customer scenarios before recommending solutions, and practice ISSU/eFSU upgrades and StackWise failure scenarios safely.</li>
+    </ul>
+  </div>
+
+  <h2 class="sec">Awards &amp; Achievements</h2>
+  <div class="grid2">
+    <div class="award"><b>1st Prize — World Final</b>, Huawei ICT Competition 2025</div>
+    <div class="award"><b>2nd Prize — World Final</b>, Huawei ICT Competition 2024</div>
+    <div class="award"><b>Grand Prize — ME &amp; Central Asia Final</b>, 2024</div>
+    <div class="award"><b>3rd Prize — ME &amp; Central Asia Final</b>, 2023</div>
+    <div class="award"><b>Grand Prize — Jordan National Final</b>, 2024</div>
+    <div class="award"><b>1st Prize — Jordan National Final</b>, 2023</div>
+  </div>
+
+  <div class="avoid-break">
+  <h2 class="sec">Education</h2>
+  <div class="edu-line">
+    <span class="edu-deg">Bachelor of Computer Engineering</span>
+    <span class="job-date">Feb 2021 – Oct 2024</span>
+  </div>
+  <div class="edu-sub">Al-Balqa' Applied University — Salt, Jordan</div>
+  </div>
+
+  <h2 class="sec">Languages</h2>
+  <div><b>Arabic</b> — Native &nbsp;&nbsp;<span class="sep" style="color:#9bb3c4">|</span>&nbsp;&nbsp; <b>English</b> — Professional Working Proficiency</div>
+
+</body>
+</html>
